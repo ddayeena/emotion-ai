@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmotionAI — Аналіз емоцій</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <div class="app-card">
+            <div class="logo">✨ EmotionAI</div>
+            <h1>Дізнайся, яку емоцію передає твій текст</h1>
+            <p class="subtitle">
+                Введи текст англійською мовою, а штучний інтелект
+                визначить його емоційне забарвлення.
+            </p>
+
+            <form id="emotionForm">
+                <label for="textInput">Твій текст</label>
+                <textarea
+                    id="textInput"
+                    placeholder="Наприклад: I am so excited about my new project!"
+                    maxlength="2000"
+                    required
+                ></textarea>
+
+                <button type="submit" id="analyzeBtn">
+                    ✨ Аналізувати емоцію
+                </button>
+            </form>
+
+            <p id="status" class="status" role="status"></p>
+
+            <section id="result" class="result hidden" aria-live="polite">
+                <div id="emotionEmoji" class="emotion-emoji"></div>
+                <h2 id="emotionName"></h2>
+                <p id="confidence"></p>
+                <div class="advice-box">
+                    <h3>💡 Рекомендація</h3>
+                    <p id="advice"></p>
+                </div>
+            </section>
+
+            <p class="footer">
+                Створено з використанням Flask, PyTorch та Transformers
+            </p>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
